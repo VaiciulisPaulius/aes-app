@@ -1,0 +1,16 @@
+.submit-btn {
+    display: block;
+    margin-top: 15px;
+}
+.encrypted-text-container {
+    min-width: 1000px;
+    min-height: 500px;
+    border: 1px solid black;
+}
+.warning {
+    margin: 5px 0 0 0;
+    color: red
+}
+.download {
+    margin-bottom: 10px;
+}

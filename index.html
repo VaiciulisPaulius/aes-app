@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script type="text/javascript" src="https://cdn.rawgit.com/ricmoo/aes-js/e27b99df/index.js"></script>
+    <script src="./script.js"></script>
+    <h1>Teksto šifravimas naudojant AES algoritma</h1>
+
+    <p>Įveskite tekstą:</p>
+    <textarea class="unencrypted-text"></textarea>
+    <p>Importuoti tekstą iš tekstines failo</p>
+    <input type="file" name="datafile" onchange="readFile(this)">
+
+
+    <p>Įveskite slaptaji rakta (turi sudaryti 16 simboliu):</p>
+    <p class="secret-key-warning warning"></p>
+    <input oninput="secretKeyLengthWarning()" type="text" max="94" class="secret-key">
+
+    <p>Pasirinkite šifravimo būda:</p>
+    <select onchange="initOptions()" id="algorithm">
+        <option value="1">ECB</option>
+        <option value="2">CBC</option>
+        <option value="3">CFB</option>
+    </select>
+
+    <div class="options"></div>
+
+    <button onclick="onSubmit()" class="submit-btn" type="submit" >Šifruoti tekstą</button>
+    <button onclick="inputDecode()" class="submit-btn" type="submit" >Dešifruoti įvedimo tekstą</button>
+    <button onclick="resultDecode()" style="display: none" class="submit-btn decode" type="submit" >Dešifruoti rezultato tekstą</button>
+
+    <p>Rezultatas:</p>
+    <button class="download" onclick="downloadFile()">Rezultata išsaugoti tekstiniame faile</button>
+    <div class="encrypted-text-container">
+        <p style="word-wrap: break-word" class="result"></p>
+    </div>
+</body>
+</html>
